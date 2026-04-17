@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/v1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: e4a6d01334f37974e95c1bf906cd18bf
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 3fb4ae938d0310045b58ee3ad92e31a5,
+      type: 2}
+  m_UseUCBPForAssetBundles: 0

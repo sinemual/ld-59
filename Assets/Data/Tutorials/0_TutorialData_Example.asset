@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef581623c0e5447eabd01fcd6604af3d, type: 3}
+  m_Name: 0_TutorialData_Example
+  m_EditorClassIdentifier: Assembly-CSharp::Data.TutorialData
+  Id: 0
+  TutorialStep: 0
+  PointId: ladle_0
+  IsCameraMovingToPoint: 1
+  IsArrowNavigationNeeded: 1
+  IsStartByMoney: 0
+  StartMoney: 0
+  IsShowByMoney: 0
+  ShowMoney: 0
+  CameraType: 1
+  TutorialDescriptionText: 
+  GoalValue: 0
+  Reward: 0
+  PreviousTutorialData: {fileID: 0}
+  NextTutorialData: {fileID: 11400000, guid: bf813aa298d7d4b45bac1d03c8a12118, type: 2}
+  IsAutoStartNextStep: 1

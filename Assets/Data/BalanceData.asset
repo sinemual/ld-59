@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7a529b5b6e0454a98f18e36d2cef78, type: 3}
+  m_Name: BalanceData
+  m_EditorClassIdentifier: 
+  <TimeToDropItem>k__BackingField: 1
+  <TimeToDespawnDeadBody>k__BackingField: 1
+  <TimeToResetDailyyTasks>k__BackingField: 1
+  <DespawnVfxTime>k__BackingField: 1
+  <HideWorldUiTime>k__BackingField: 1
+  <SpawnCustomerTime>k__BackingField: 1
+  <TimeToTriggerInteraction>k__BackingField: 1
+  <DistanceToTriggerInteraction>k__BackingField: 1.25
+  <HoleComboMaxTimer>k__BackingField: 1
+  <CutOffCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <OfflineTimeHourCap>k__BackingField: {x: 0, y: 0}
+  <StartMoney>k__BackingField: 0
+  <BaseLevelReward>k__BackingField: 0
+  <LevelMultiCoef>k__BackingField: 1
+  <LevelBaseCoef>k__BackingField: 1
+  <StackAccumulateSpeed>k__BackingField: 1
+  <MoneyPerView>k__BackingField: 5
+  <SpawnConeAngle>k__BackingField: 15
+  <CollectMoneyRadius>k__BackingField: 1.5
+  <ArrowVisibleRadius>k__BackingField: 0
+  <ComboMultiplier>k__BackingField: 1
+  <SaveItemsIntervalTimer>k__BackingField: 0
+  <LevelFullnessFactor>k__BackingField: 60
+  <DistanceForArrow>k__BackingField: 1
+  <CharacterRotateSpeed>k__BackingField: 300
+  <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
+  <ExplosionRadius>k__BackingField: 3
+  <ExplosionForce>k__BackingField: 3
+  <DropItemSpeed>k__BackingField: 3
+  <PushForceCoef>k__BackingField: 3
+  <IsTestUpgrades>k__BackingField: 0
+  <IsShowUpgradesButton>k__BackingField: 0
