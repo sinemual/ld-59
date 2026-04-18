@@ -118,6 +118,8 @@ namespace Client
                 //---Level State---
                 .Add(new LevelProgressSystem())
                 .Add(new GameOverSystem())
+                //---Manipulator---
+                .Add(new ManipulatorSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -159,6 +161,7 @@ namespace Client
                 .Add(new HeroTriggerSystem())
                 .Add(new VelocityMovingSystem())
                 .Add(new PhysicForceAddSystem())
+                .Add(new MouseRaycastSystem())
                 //---OneFrames---
                 .OneFrame<OnCollisionEnterEvent>()
                 .OneFrame<OnCollisionStayEvent>()

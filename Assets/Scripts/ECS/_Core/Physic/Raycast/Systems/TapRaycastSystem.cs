@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Client
 {
-    public class TapScreenRaycastSystem : IEcsRunSystem
+    public class TapRaycastSystem : IEcsRunSystem
     {
         private SharedData _data;
         private EcsWorld _world;
@@ -13,7 +13,7 @@ namespace Client
         {
             if (Input.GetMouseButtonDown(0))
             {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                var ray = _data.SceneData.CameraSceneData.MainCamera.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out var hit, 100f, _data.StaticData.RaycastMask))
                     _world.NewEntity().Get<RaycastEvent>() = new RaycastEvent

@@ -6,4 +6,5 @@ public struct RaycastProvider
 {
     public Transform StartRaycastPoint;
     public float RaycastLength;
+    public LayerMask PlacementLayerMask;
 }
