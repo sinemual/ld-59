@@ -20,7 +20,6 @@ namespace Client
         {
             _ui.GetScreen<GameScreen>().PauseButtonClick += () =>
             {
-                PokiUnitySDK.Instance.gameplayStop();
                 Time.timeScale = 0.0f;
                 _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.Pause;
                 _ui.ShowScreen<SettingsScreen>();

@@ -42,7 +42,6 @@ namespace Client
                 ref var startRequest = ref entity.Get<StartTutorialRequest>();
 
                 //_ui.ShowTutorialScreen(startRequest.TutorialStep);
-                Debug.Log($"startRequest.TutorialStep 1: {startRequest.TutorialStep}");
                 _data.SaveData.CurrentTutorialStep = startRequest.TutorialStep;
                 if (IsNextStepCompleted())
                 {
@@ -50,7 +49,6 @@ namespace Client
                     continue;
                 }
 
-                Debug.Log($"startRequest.TutorialStep 2: {startRequest.TutorialStep}");
                 //Debug.Log($"_startFilter");
 
                 foreach (var tutr in _tutorialFilter)
@@ -151,13 +149,11 @@ namespace Client
 
         private void CheckTutorialStates()
         {
-            Debug.Log($"CheckTutorialStates() 0");
             if (_data.SaveData.TutrorialStates[_data.SaveData.CurrentTutorialStep] &&
                 _data.StaticData.TutorialDataByStep[_data.SaveData.CurrentTutorialStep].IsAutoStartNextStep &&
                 !_data.SaveData.TutrorialStates[
                     _data.StaticData.TutorialDataByStep[_data.SaveData.CurrentTutorialStep].NextTutorialData.TutorialStep])
             {
-                Debug.Log($"CheckTutorialStates() 1");
                 _world.NewEntity().Get<StartTutorialRequest>().TutorialStep =
                     (TutorialStep)(_data.StaticData.TutorialDataByStep[_data.SaveData.CurrentTutorialStep].NextTutorialData.TutorialStep);
                 return;
@@ -169,7 +165,6 @@ namespace Client
             {
                 if (_data.SaveData.Currency >= _data.StaticData.TutorialDataByStep[_data.SaveData.CurrentTutorialStep].NextTutorialData.ShowMoney)
                 {
-                    Debug.Log($"CheckTutorialStates() 2");
                     _world.NewEntity().Get<StartTutorialRequest>().TutorialStep =
                         (TutorialStep)(_data.StaticData.TutorialDataByStep[_data.SaveData.CurrentTutorialStep].NextTutorialData.TutorialStep);
                     return;
@@ -184,7 +179,6 @@ namespace Client
                     !_data.SaveData.TutrorialStates[tutorialData.TutorialStep] &&
                     _data.SaveData.TutrorialStates[tutorialData.PreviousTutorialData.TutorialStep])
                 {
-                    Debug.Log($"CheckTutorialStates() 3");
                     _world.NewEntity().Get<StartTutorialRequest>().TutorialStep = tutorialData.TutorialStep;
                     return;
                 }
@@ -208,8 +202,8 @@ namespace Client
 
         private bool ReturnToTheGameCheckTutorial()
         {
-            Debug.Log(
-                $"ReturnToTheGameCheckTutorial {_data.SaveData.CurrentTutorialStep} {_data.SaveData.TutrorialStates[_data.SaveData.CurrentTutorialStep]}");
+            /*Debug.Log(
+                $"ReturnToTheGameCheckTutorial {_data.SaveData.CurrentTutorialStep} {_data.SaveData.TutrorialStates[_data.SaveData.CurrentTutorialStep]}");*/
             if (_data.SaveData.TutrorialStates[_data.SaveData.CurrentTutorialStep])
                 return false;
 

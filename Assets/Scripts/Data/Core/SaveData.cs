@@ -19,6 +19,8 @@ namespace Data
 
         [Header("Currency")] 
         public int Currency;
+        public int SignalPoints;
+        public int BestSignalPoints;
         public int LevelIdx;
         public int EventLevelIdx;
         public int PlayerLevel;
@@ -30,6 +32,7 @@ namespace Data
         public TutorialStep CurrentTutorialStep;
 
         [Header("Tutorials")] public SerializedDictionary<TutorialStep, bool> TutrorialStates;
+        [Header("Tutorials")] public SerializedDictionary<string, bool> IsBlockResearched;
 
         public void ResetToDefaults()
         {
@@ -49,6 +52,7 @@ namespace Data
             IdleRewardTimeKey = "";
             
             TutrorialStates = new SerializedDictionary<TutorialStep, bool>();
+            IsBlockResearched = new SerializedDictionary<string, bool>();
         }
 
         public void BindData(int startMoney, List<TutorialData> tutorialDatas)

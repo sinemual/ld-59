@@ -20,10 +20,14 @@ namespace Client.Data
         public List<LevelData> Levels;
         public LevelData LevelLooped;
 
-        [Header("Tutorials & Tasks")] 
+        [Header("Tutorials & Tasks")]
         //public SerializedDictionary<TutorialStep, bool> TutorDependenceByStep;
         public List<TutorialData> TutorialData;
+
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
+
+        [Header("Current Game Data")] public List<SignalBlockData> SignalBlockDatas;
+        public Dictionary<SignalBlockType, SignalBlockData> SignalBlockDataByType;
 
         [Header("Tags & Layers")] [Group("Tags")] [Tag]
         public string GroundTag;
@@ -47,6 +51,21 @@ namespace Client.Data
             TutorialDataByStep = new Dictionary<TutorialStep, TutorialData>();
             foreach (var tutrData in TutorialData)
                 TutorialDataByStep.Add(tutrData.TutorialStep, tutrData);
+
+            SignalBlockDataByType = new Dictionary<SignalBlockType, SignalBlockData>();
+            foreach (var blockData in SignalBlockDatas)
+                SignalBlockDataByType.Add(blockData.SignalBlockType, blockData);
+        }
+
+        public SignalBlockData GetBlockByParameters(SignalBlockType blockType, InputDirection inputDirection)
+        {
+            foreach (var signalBlockData in SignalBlockDatas)
+            {
+                if (signalBlockData.InputDirection == inputDirection && signalBlockData.SignalBlockType == blockType)
+                    return signalBlockData;
+            }
+
+            return null;
         }
     }
 }

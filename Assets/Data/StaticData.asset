@@ -33,6 +33,8 @@ MonoBehaviour:
   LevelLooped: {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
+  SignalBlockDatas:
+  - {fileID: 11400000, guid: 1ee493f1c1460c54f9ac8d983ad1d0cb, type: 2}
   GroundTag: 
   RaycastMask:
     serializedVersion: 2

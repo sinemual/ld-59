@@ -50,6 +50,7 @@ namespace Client.Infrastructure.UI.BaseUI
     {
         None = 0,
         GameScreen = 1,
-        PauseScreen = 2
+        SettingsScreen = 2,
+        SignalBlockScreen = 3
     }
 }

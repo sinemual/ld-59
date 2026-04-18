@@ -10,9 +10,4 @@ using UnityEngine.Splines;
 [Serializable]
 public struct LevelProvider
 {
-    public Transform HeroSpawnPoint;
-    public Transform LadleSpawnPoint;
-    public Transform WorkerSpawnPoint;
-    public Transform ShopItemSpawnPoint;
-    public Transform[] ClientSpawnPoints;
 }

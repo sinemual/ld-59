@@ -36,6 +36,7 @@ namespace Client
                     _world.NewEntity().Get<StartWorldSoundRequest>();
                     //_world.NewEntity().Get<StartEarnEnergyRequest>();
                     _ui.ShowScreen<GameScreen>();
+                    _ui.ShowScreen<SignalBlockScreen>();
                     _ui.ReorderScreens();
                     _world.NewEntity().Get<CheckInputToGameplayStartRequest>();
                     /*EcsEntity heroEntity = _prefabFactory.Spawn(_data.StaticData.CharacterDataByType[CharacterType.Hero].Prefab,
@@ -44,6 +45,8 @@ namespace Client
 
                     _cameraService.SetCamera(CameraType.PizzaReady, heroGo.transform, heroGo.transform);
                     _cameraService.SetDefaultTarget(heroGo.transform);*/
+                    
+                    
 
                     reqEntity.Del<StartLevelRequest>();
 

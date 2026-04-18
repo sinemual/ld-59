@@ -54,7 +54,6 @@ namespace Client
                 Time.timeScale = 1.0f;
                 _ui.HideScreen<SettingsScreen>();
                 _audioService.Play(Sounds.UiClickSound);
-                PokiUnitySDK.Instance.gameplayStart();
             };
         }
     }

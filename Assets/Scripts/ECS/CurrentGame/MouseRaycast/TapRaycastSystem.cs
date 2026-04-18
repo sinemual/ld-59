@@ -1,0 +1,27 @@
+﻿using Client.Data.Core;
+using Leopotam.Ecs;
+using UnityEngine;
+
+namespace Client
+{
+    public class TapRaycastSystem : IEcsRunSystem
+    {
+        private SharedData _data;
+        private EcsWorld _world;
+
+        public void Run()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                var ray = _data.SceneData.CameraSceneData.MainCamera.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out var hit, 100f))
+                    _world.NewEntity().Get<TapRaycastEvent>() = new TapRaycastEvent
+                    {
+                        GameObject = hit.collider.gameObject,
+                        HitPoint = hit.point
+                    };
+            }
+        }
+    }
+}

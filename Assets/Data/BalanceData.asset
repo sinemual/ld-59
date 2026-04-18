@@ -17,10 +17,6 @@ MonoBehaviour:
   <TimeToResetDailyyTasks>k__BackingField: 1
   <DespawnVfxTime>k__BackingField: 1
   <HideWorldUiTime>k__BackingField: 1
-  <SpawnCustomerTime>k__BackingField: 1
-  <TimeToTriggerInteraction>k__BackingField: 1
-  <DistanceToTriggerInteraction>k__BackingField: 1.25
-  <HoleComboMaxTimer>k__BackingField: 1
   <CutOffCurve>k__BackingField:
     serializedVersion: 2
     m_Curve: []
@@ -28,19 +24,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <OfflineTimeHourCap>k__BackingField: {x: 0, y: 0}
-  <StartMoney>k__BackingField: 0
+  <StartMoney>k__BackingField: 1000
   <BaseLevelReward>k__BackingField: 0
   <LevelMultiCoef>k__BackingField: 1
   <LevelBaseCoef>k__BackingField: 1
-  <StackAccumulateSpeed>k__BackingField: 1
-  <MoneyPerView>k__BackingField: 5
-  <SpawnConeAngle>k__BackingField: 15
-  <CollectMoneyRadius>k__BackingField: 1.5
-  <ArrowVisibleRadius>k__BackingField: 0
-  <ComboMultiplier>k__BackingField: 1
-  <SaveItemsIntervalTimer>k__BackingField: 0
-  <LevelFullnessFactor>k__BackingField: 60
-  <DistanceForArrow>k__BackingField: 1
+  <DistanceToTriggerInteraction>k__BackingField: 1.25
+  <TimeToTriggerInteraction>k__BackingField: 1
   <CharacterRotateSpeed>k__BackingField: 300
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3

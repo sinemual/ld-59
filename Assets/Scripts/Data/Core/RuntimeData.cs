@@ -23,6 +23,7 @@ namespace Data
         
         public bool IsWeHaveInternetTime;
         public bool IsLoopedLevel;
+        public bool IsDeleteState;
 
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 
@@ -41,6 +42,11 @@ namespace Data
             if (value < 500)
                 value = 500;
             return value;
+        }
+
+        public int GetResearchPoints()
+        {
+            return 100;
         }
 
         public int ExperienceToNextLevel() =>

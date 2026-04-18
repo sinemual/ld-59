@@ -113,13 +113,25 @@ namespace Client
                 .Add(new CompleteInitLevelSystem())
                 //---Level---
                 .Add(new StartLevelSystem())
-                .Add(new CheckInputToGameplayStartSystem())
                 .Add(new StartLevelSoundSystem())
+                .Add(new InitGridSystem())
                 //---Level State---
                 .Add(new LevelProgressSystem())
                 .Add(new GameOverSystem())
                 //---Manipulator---
                 .Add(new ManipulatorSystem())
+                //---Blocks---
+                //.Add(new DeleteModeSystem())
+                .Add(new BuyBlockSystem())
+                .Add(new RotateBlockSystem())
+                .Add(new TakeBlockSystem())
+                .Add(new PlaceBlockSystem())
+                .Add(new SellBlockSystem())
+                //---SignalChain---
+                .Add(new StartSignalChainButtonTapSystem())
+                .Add(new SignalChainBuildSystem())
+                .Add(new SignalCalculateSystem())
+                .Add(new TryToSendSignalSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -135,6 +147,8 @@ namespace Client
                 .OneFrame<StepSoundEvent>()
                 .OneFrame<SpendCurrncyEvent>()
                 .OneFrame<TutorialCompleteEvent>()
+                .OneFrame<TapRaycastEvent>()
+                .OneFrame<SignalStartButtonTapEvent>()
                 //---Injects---
                 .Inject(this) // for coroutine runner
                 .Inject(data)
@@ -162,6 +176,7 @@ namespace Client
                 .Add(new VelocityMovingSystem())
                 .Add(new PhysicForceAddSystem())
                 .Add(new MouseRaycastSystem())
+                .Add(new TapRaycastSystem())
                 //---OneFrames---
                 .OneFrame<OnCollisionEnterEvent>()
                 .OneFrame<OnCollisionStayEvent>()
@@ -250,6 +265,7 @@ namespace Client
         {
             return new EcsSystems(_ecsWorld, "UserInterfaceSystems")
                 .Add(new GameScreenSystem())
+                .Add(new SignalBlockScreenSystem())
                 .Add(new SettingScreenSystem());
         }
         private void OnApplicationPause(bool pause)
