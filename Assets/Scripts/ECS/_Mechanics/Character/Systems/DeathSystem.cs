@@ -41,7 +41,6 @@ namespace Client
                     deadCharacter.DeathCollider.enabled = true;
 
                     animator.SetTrigger(Animations.IsDeath);
-                    _audioService.Play(Sounds.GetRandomZombieHit());
                 }
 
                 if (deadEntity.Has<StateCanvasProvider>())

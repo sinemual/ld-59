@@ -1,10 +1,11 @@
 ﻿using Client.Data;
+using Leopotam.Ecs;
 
 namespace Client
 {
-    public struct InputBlockType
+    public struct InputBlock
     {
-        public SignalBlockType Value;
+        public EcsEntity Value;
     }
     
     public struct OutputBlockMarker

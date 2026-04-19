@@ -1,3 +1,6 @@
-﻿public class SignalInputMonoProvider : MonoProvider<SignalInputProvider>
+﻿using System;
+
+[Serializable]
+public class SignalInputMonoProvider : MonoProvider<SignalInputProvider>
 {
 }

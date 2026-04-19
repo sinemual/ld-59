@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<TapRaycastEvent> _tapRequestFilter;
         private EcsFilter<ManipulatorProvider, InGridState>.Exclude<IsHaveBlockState> _manipulatorFilter;
@@ -46,6 +48,7 @@ namespace Client
                                 manipulatorEntity.Get<IsHaveBlockState>().BlockEntity = blockEntity;
                                 grid.IsBusy = false;
                                 requestEntity.Del<TapRaycastEvent>();
+                                _audioService.Play(Sounds.Take);
                             }
                         }
                     }

@@ -24,6 +24,7 @@ namespace Data
         [field: SerializeField] public int BaseLevelReward { get; private set; }
         [field: SerializeField] public float LevelMultiCoef { get; private set; }
         [field: SerializeField] public float LevelBaseCoef { get; private set; }
+        [field: SerializeField] public float DistanceBetweenBlocks { get; private set; }
         [field: SerializeField] public float DistanceToTriggerInteraction { get; private set; }
         [field: SerializeField] public float TimeToTriggerInteraction { get; private set; }
 

@@ -19,8 +19,8 @@ namespace Data
 
         [Header("Currency")] 
         public int Currency;
-        public int SignalPoints;
-        public int BestSignalPoints;
+        public int Signal;
+        public int BestSignal;
         public int LevelIdx;
         public int EventLevelIdx;
         public int PlayerLevel;

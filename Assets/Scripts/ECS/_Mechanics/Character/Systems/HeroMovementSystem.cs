@@ -52,14 +52,13 @@ namespace Client
                     continue;
                 }
 
-                if (heroEntity.Has<StepSoundEvent>())
+                /*if (heroEntity.Has<StepSoundEvent>())
                 {
                     if (Random.value > 0.5f)
                         _audioService.Play(Sounds.Step1);
                     else
                         _audioService.Play(Sounds.Step2);
-                }
-
+                }*/
 
                 Vector3 moveDirection = (cameraForward * input.y + cameraRight * input.x).normalized;
                 float speed = 1;

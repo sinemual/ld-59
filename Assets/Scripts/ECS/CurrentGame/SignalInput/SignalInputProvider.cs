@@ -1,4 +1,6 @@
-﻿public struct SignalInputProvider
-{
+﻿using UnityEngine;
 
+public struct SignalInputProvider
+{
+    public GameObject AntennaGo;
 }

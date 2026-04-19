@@ -18,6 +18,7 @@ namespace Data
 
         public int CurrentTaskId = -1;
         public float LevelProgress;
+        public int BlockCounter;
 
         public int LastLevelIdx = -1;
         

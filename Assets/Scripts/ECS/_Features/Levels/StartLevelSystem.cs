@@ -6,6 +6,7 @@ using Client.ECS.CurrentGame.Mining;
 using Client.Factories;
 using Client.Infrastructure.UI;
 using Leopotam.Ecs;
+using UnityEngine;
 using CameraType = Client.Data.CameraType;
 
 namespace Client
@@ -18,6 +19,7 @@ namespace Client
         private UserInterface _ui;
         private PrefabFactory _prefabFactory;
         private CameraService _cameraService;
+        private AudioService _audioService;
 
         private EcsFilter<StartLevelRequest>.Exclude<Timer<DelayTimer>> _filter;
         private EcsFilter<LevelProvider, InitedMarker, CurrentLevelTag> _levelFilter;
@@ -39,14 +41,17 @@ namespace Client
                     _ui.ShowScreen<SignalBlockScreen>();
                     _ui.ReorderScreens();
                     _world.NewEntity().Get<CheckInputToGameplayStartRequest>();
+                    //_audio
                     /*EcsEntity heroEntity = _prefabFactory.Spawn(_data.StaticData.CharacterDataByType[CharacterType.Hero].Prefab,
                         levelProvider.HeroSpawnPoint.position, levelProvider.HeroSpawnPoint.rotation);
                     var heroGo = heroEntity.Get<GameObjectProvider>().Value;
 
                     _cameraService.SetCamera(CameraType.PizzaReady, heroGo.transform, heroGo.transform);
                     _cameraService.SetDefaultTarget(heroGo.transform);*/
-                    
-                    
+                    Debug.Log($"StartLevelSystem");
+                    _audioService.Play(Sounds.MusicGameplaySound);
+                    //_audioService.EffectSetLowpassCutoff(1);
+                    //_audioService.MusicSetLowpassCutoff(1);
 
                     reqEntity.Del<StartLevelRequest>();
 

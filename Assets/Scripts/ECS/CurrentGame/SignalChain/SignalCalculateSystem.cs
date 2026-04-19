@@ -11,28 +11,35 @@ namespace Client
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
 
-        private EcsFilter<SignalBlockProvider, MyGrid> _blockFilter;
+        //private EcsFilter<SignalBlockProvider, MyGrid> _blockFilter;
         private EcsFilter<SignalStartButtonTapEvent> _eventFilter;
+        private EcsFilter<BlocksChain> _blocksChainFilter;
         
         public void Run()
         {
             if (_eventFilter.IsEmpty())
                 return;
             
-            foreach (var idx in _blockFilter)
+            foreach (var idx in _blocksChainFilter)
             {
-                ref var blockEntity = ref _blockFilter.GetEntity(idx);
-                ref var blockData = ref blockEntity.Get<SignalBlockDataComponent>().Value;
+                ref var chainEntity = ref _blocksChainFilter.GetEntity(idx);
+                ref var chainData = ref chainEntity.Get<BlocksChain>().Value;
 
-                if (blockEntity.Has<InputBlockType>())
+                for (int i = 0; i < chainData.Count; i++)
                 {
-                    ref var input = ref blockEntity.Get<InputBlockType>().Value;
-                    if (input == SignalBlockType.OneSignal)
-                        blockEntity.Get<SignalValue>().Value += 1;
+                    if (chainData[i].Has<InputBlock>())
+                    {
+                        ref var inputBlockEntity = ref chainData[i].Get<InputBlock>().Value;
+                        ref var inputBlockData = ref inputBlockEntity.Get<SignalBlockDataComponent>().Value;
+                        if (inputBlockData.SignalBlockType == SignalBlockType.OneSignal)
+                            chainData[i].Get<SignalValue>().Value += inputBlockEntity.Get<SignalValue>().Value;
+                    }
+                    ref var blockData = ref chainData[i].Get<SignalBlockDataComponent>().Value;
+                    if (blockData.SignalBlockType == SignalBlockType.OneSignal)
+                        chainData[i].Get<SignalValue>().Value += 1;
                 }
-
-                if (blockData.SignalBlockType == SignalBlockType.OneSignal)
-                    blockEntity.Get<SignalValue>().Value += 1;
+                
+                chainEntity.Destroy();
             }
         }
     }

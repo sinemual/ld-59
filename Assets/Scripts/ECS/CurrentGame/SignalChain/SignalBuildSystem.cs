@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
@@ -7,7 +6,7 @@ using UnityEngine;
 
 namespace Client
 {
-    public class SignalChainBuildSystem : IEcsRunSystem
+    public class SignalBuildSystem : IEcsRunSystem
     {
         private SharedData _data;
         private EcsWorld _world;
@@ -28,14 +27,15 @@ namespace Client
                 ref var signalBlockData = ref blockEntity.Get<SignalBlockDataComponent>().Value;
                 ref var blockGo = ref blockEntity.Get<GameObjectProvider>().Value;
 
+                var distance = _data.BalanceData.DistanceBetweenBlocks;
                 blockEntity.Del<OutputBlockMarker>();
                 Transform signalInputTransform = _signalInputFilter.Get2(0).Value.transform;
-                if (Vector3.Distance(blockGo.transform.position, signalInputTransform.position) <= 1.5f &&
+                if (Vector3.Distance(blockGo.transform.position, signalInputTransform.position) <= distance &&
                     BlockIsLookingToAnotherBlock(signalInputTransform, blockGo.transform))
                     blockEntity.Get<OutputBlockMarker>();
 
                 blockEntity.Del<SignalValue>();
-                blockEntity.Del<InputBlockType>();
+                blockEntity.Del<InputBlock>();
 
                 foreach (var idz in _blockFilter)
                 {
@@ -43,12 +43,18 @@ namespace Client
                     ref var difSignalBlockData = ref difBlockEntity.Get<SignalBlockDataComponent>().Value;
                     ref var difBlockGo = ref difBlockEntity.Get<GameObjectProvider>().Value;
 
-                    if (Vector3.Distance(blockGo.transform.position, difBlockGo.transform.position) <= 1.5f)
+                    if (difBlockGo == blockGo)
+                        continue;
+
+                    if (Vector3.Distance(blockGo.transform.position, difBlockGo.transform.position) <= distance)
                     {
+                        Debug.Log(
+                            $"{blockGo} -> {difBlockGo} = {BlockIsLookingToAnotherBlock(blockGo.transform, difBlockGo.transform)} | {IsInputDirectionTrue(blockGo.transform, difBlockGo.transform, signalBlockData.InputDirection)}");
                         if (BlockIsLookingToAnotherBlock(blockGo.transform, difBlockGo.transform) &&
                             IsInputDirectionTrue(blockGo.transform, difBlockGo.transform, signalBlockData.InputDirection))
                         {
-                            blockEntity.Get<InputBlockType>().Value = difSignalBlockData.SignalBlockType;
+                            Debug.Log($"{blockGo} -> {difBlockGo} - YES");
+                            blockEntity.Get<InputBlock>().Value = difBlockEntity;
                         }
                     }
                 }

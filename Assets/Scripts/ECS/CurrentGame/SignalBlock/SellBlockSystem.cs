@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
 
@@ -9,6 +10,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<TapRaycastEvent> _tapRequestFilter;
         private EcsFilter<ManipulatorProvider, IsHaveBlockState>.Exclude<InGridState> _manipulatorFilter;
@@ -36,6 +38,7 @@ namespace Client
                         (int)(signalBlockData.BuyPrice * 0.5f);
                     _prefabFactory.Despawn(ref blockEntity);
                     manipulatorEntity.Del<IsHaveBlockState>();
+                    _audioService.Play(Sounds.Money);
                 }
             }
         }

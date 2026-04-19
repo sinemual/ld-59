@@ -63,7 +63,7 @@ namespace Client
                                 hitPoint.y,
                                 gridStart.z + cellZ * cellSize + cellSize * 0.5f
                             );
-                            nearestGridCellNum = cellZ * 6 + cellX;
+                            nearestGridCellNum = cellZ * 5 + cellX;
                             
                             /*var distance = Vector3.Distance(gridCell.Point.position, raycastEvent.HitPoint);
                             if (distance < nearestDistance)

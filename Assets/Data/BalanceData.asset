@@ -28,8 +28,9 @@ MonoBehaviour:
   <BaseLevelReward>k__BackingField: 0
   <LevelMultiCoef>k__BackingField: 1
   <LevelBaseCoef>k__BackingField: 1
+  <DistanceBetweenBlocks>k__BackingField: 3
   <DistanceToTriggerInteraction>k__BackingField: 1.25
-  <TimeToTriggerInteraction>k__BackingField: 1
+  <TimeToTriggerInteraction>k__BackingField: 2
   <CharacterRotateSpeed>k__BackingField: 300
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3

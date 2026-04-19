@@ -1,3 +1,4 @@
+using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
@@ -10,6 +11,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<BuyBlockRequest> _reqFilter;
         private EcsFilter<ManipulatorProvider> _manipulatorFilter;
@@ -32,11 +34,15 @@ namespace Client
                     {
                         EcsEntity blockEntity = _prefabFactory.Spawn(blockData.Prefab, manipulatorGo.transform.position, Quaternion.identity,
                             manipulatorGo.transform);
+                        
                         manipulatorEntity.Get<IsHaveBlockState>().BlockEntity = blockEntity;
                         blockEntity.Get<SignalBlockDataComponent>().Value = blockData;
                         var blockGo = blockEntity.Get<GameObjectProvider>().Value;
+                        blockGo.transform.name = $"{request.SignalBlockType}_{request.InputDirection}_{_data.RuntimeData.BlockCounter}";
+                        _data.RuntimeData.BlockCounter += 1;
                         blockGo.transform.SetParent(manipulatorGo.transform);
                         blockGo.transform.localPosition = Vector3.zero;
+                        _audioService.Play(Sounds.Buy);
                         //PrimeTween.Tween.LocalPosition(blockGo.transform, Vector3.up, 0.5f);
                     }
                     else

@@ -17,7 +17,6 @@ namespace Client
         private UserInterface _ui;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
-        private AudioService _audioService;
         private TimeManagerService _timeManagerService;
         private CameraService _cameraService;
         
@@ -31,9 +30,7 @@ namespace Client
 
             //_world.NewEntity().Get<SpawnMenuLevelRequest>();
 
-            _audioService.Play(Sounds.MusicMenuSound);
-            _audioService.EffectSetLowpassCutoff(0);
-            _audioService.MusicSetLowpassCutoff(0);
+            
             
             //_cameraService.SetCamera(CameraType.None);
 

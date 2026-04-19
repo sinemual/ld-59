@@ -1,3 +1,4 @@
+using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
@@ -10,6 +11,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<TapRaycastEvent> _tapRequestFilter;
 
@@ -25,6 +27,7 @@ namespace Client
                     if (monoEntity.Entity.Has<SignalStartButtonProvider>())
                     {
                         _world.NewEntity().Get<SignalStartButtonTapEvent>();
+                        _audioService.Play(Sounds.Button);
                     }
                 }
             }

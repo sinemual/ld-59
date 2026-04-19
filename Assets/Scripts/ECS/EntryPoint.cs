@@ -129,7 +129,8 @@ namespace Client
                 .Add(new SellBlockSystem())
                 //---SignalChain---
                 .Add(new StartSignalChainButtonTapSystem())
-                .Add(new SignalChainBuildSystem())
+                .Add(new SignalBuildSystem())
+                .Add(new SignalChainSystem())
                 .Add(new SignalCalculateSystem())
                 .Add(new TryToSendSignalSystem())
                 //---Currency---

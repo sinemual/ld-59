@@ -5,4 +5,5 @@ using TMPro;
 public struct SignalScreenProvider
 {
     public TextMeshProUGUI SignalText;
+    public TextMeshProUGUI BestSignalText;
 }

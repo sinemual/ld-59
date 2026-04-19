@@ -2,6 +2,6 @@
 {
     public struct SignalValue
     {
-        public float Value;
+        public int Value;
     }
 }
