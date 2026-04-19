@@ -23,6 +23,7 @@ namespace Client
                 _world.NewEntity().Get<EarnCurrencyEvent>().Value = entity.Get<AddCurrencyRequest>().Value;
                 entity.Del<AddCurrencyRequest>();
                 _audioService.Play(Sounds.Money);
+                
             }
 
             foreach (var idx in _subtractFilter)

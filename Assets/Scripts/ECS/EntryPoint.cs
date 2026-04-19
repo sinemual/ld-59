@@ -115,9 +115,9 @@ namespace Client
                 .Add(new StartLevelSystem())
                 .Add(new StartLevelSoundSystem())
                 .Add(new InitGridSystem())
+                .Add(new SpawnFirstBlockSystem())
                 //---Level State---
                 .Add(new LevelProgressSystem())
-                .Add(new GameOverSystem())
                 //---Manipulator---
                 .Add(new ManipulatorSystem())
                 //---Blocks---
@@ -133,12 +133,15 @@ namespace Client
                 .Add(new SignalChainSystem())
                 .Add(new SignalCalculateSystem())
                 .Add(new TryToSendSignalSystem())
+                .Add(new RotationObjectsSystem())
+                .Add(new SignalReactSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
                 //.Add(new DespawnAtEndOfFrameSystem())
                 //---Tutorial---
                 .Add(new TutorialSystem())
+                .Add(new GameEndSystem())
                 //---OneFrames---
                 .OneFrame<GameStateChangedEvent>()
                 .OneFrame<DeathEvent>()
@@ -150,6 +153,9 @@ namespace Client
                 .OneFrame<TutorialCompleteEvent>()
                 .OneFrame<TapRaycastEvent>()
                 .OneFrame<SignalStartButtonTapEvent>()
+                .OneFrame<SignalEndEvent>()
+                .OneFrame<ProjectSolutionEvent>()
+                .OneFrame<SignalEvent>()
                 //---Injects---
                 .Inject(this) // for coroutine runner
                 .Inject(data)
@@ -259,6 +265,7 @@ namespace Client
                 .Add(new TimerSystem<ReloadingTimer>())
                 .Add(new TimerSystem<TimerToLoot>())
                 .Add(new TimerSystem<DespawnTimer>())
+                .Add(new TimerSystem<ErrorTimer>())
                 .Add(new TimerSystem<ShowingEarningViewTimer>());
         }
 

@@ -14,7 +14,9 @@ public class SignalBlockPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private UIButton buyButton;
     [SerializeField] private TextMeshProUGUI priceText;
+    [SerializeField] private TextMeshProUGUI researchPriceText;
     [SerializeField] private GameObject coverGo;
+    [SerializeField] private GameObject notReserchedYeatPanel;
     [SerializeField] private RectTransform rectT;
 
     public event Action<SignalBlockData> BuyBlock;
@@ -24,14 +26,15 @@ public class SignalBlockPanel : MonoBehaviour
 
     public RectTransform RectT => rectT;
 
-    public void UpdateInfoByData(SignalBlockData signalBlockData, int money, int signalPoints, bool isTutorialStep)
+    public void UpdateInfoByData(SignalBlockData signalBlockData, int money, bool isResearched, bool isTutorialStep)
     {
         _signalBlockData = signalBlockData;
         bool isCanBuyIt = money >= _signalBlockData.BuyPrice;
         blockImage.sprite = _signalBlockData.BlockSprite;
-        nameText.text = $"{_signalBlockData.BlockName}";
+        nameText.text = $"{_signalBlockData.InputDirection}";
         descriptionText.text = $"{_signalBlockData.BlockDescription}";
         priceText.text = $"{Utility.Format(_signalBlockData.BuyPrice)}<sprite=0>";
+        researchPriceText.text = $"{Utility.Format(_signalBlockData.BuyPrice)}<sprite=0>";
 
         buyButton.Clicked -= BuyBlockClick;
         buyButton.SetInteractable(isCanBuyIt);
@@ -39,6 +42,7 @@ public class SignalBlockPanel : MonoBehaviour
             buyButton.Clicked += BuyBlockClick;
 
         coverGo.SetActive(!isCanBuyIt);
+        notReserchedYeatPanel.SetActive(!isResearched);
     }
 
     private void OnDisable()

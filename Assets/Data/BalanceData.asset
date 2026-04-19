@@ -24,13 +24,19 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <OfflineTimeHourCap>k__BackingField: {x: 0, y: 0}
-  <StartMoney>k__BackingField: 1000
+  <StartMoney>k__BackingField: 10
   <BaseLevelReward>k__BackingField: 0
   <LevelMultiCoef>k__BackingField: 1
   <LevelBaseCoef>k__BackingField: 1
-  <DistanceBetweenBlocks>k__BackingField: 3
+  <DistanceBetweenBlocks>k__BackingField: 2
   <DistanceToTriggerInteraction>k__BackingField: 1.25
   <TimeToTriggerInteraction>k__BackingField: 2
+  <WinSignal>k__BackingField: 200
+  <ButtonLocalPos>k__BackingField: {x: 0, y: 0.874, z: 0.9054823}
+  <ButtonStartScale>k__BackingField: {x: 1.5232, y: 0.8070204, z: 0.7633427}
+  <ButtonPressDuration>k__BackingField: 0.1
+  <StartFov>k__BackingField: 10
+  <FovCoef>k__BackingField: 0.1
   <CharacterRotateSpeed>k__BackingField: 300
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3

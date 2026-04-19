@@ -13,6 +13,7 @@ namespace Client
         private PrefabFactory _prefabFactory;
 
         private EcsFilter<SignalBlockProvider, MyGrid> _blockFilter;
+        private EcsFilter<SignalBlockProvider, LoneWolfTag> _loneWolfFilter;
         private EcsFilter<SignalInputProvider, GameObjectProvider> _signalInputFilter;
         private EcsFilter<SignalStartButtonTapEvent> _eventFilter;
 
@@ -46,20 +47,27 @@ namespace Client
                     if (difBlockGo == blockGo)
                         continue;
 
+                    if (blockEntity.Has<LoneWolfTag>())
+                        blockEntity.Get<WorkState>();
+
                     if (Vector3.Distance(blockGo.transform.position, difBlockGo.transform.position) <= distance)
                     {
-                        Debug.Log(
-                            $"{blockGo} -> {difBlockGo} = {BlockIsLookingToAnotherBlock(blockGo.transform, difBlockGo.transform)} | {IsInputDirectionTrue(blockGo.transform, difBlockGo.transform, signalBlockData.InputDirection)}");
+                        //Debug.Log($"{blockGo} -> {difBlockGo} = {BlockIsLookingToAnotherBlock(blockGo.transform, difBlockGo.transform)} | {IsInputDirectionTrue(blockGo.transform, difBlockGo.transform, signalBlockData.InputDirection)}");
                         if (BlockIsLookingToAnotherBlock(blockGo.transform, difBlockGo.transform) &&
                             IsInputDirectionTrue(blockGo.transform, difBlockGo.transform, signalBlockData.InputDirection))
                         {
-                            Debug.Log($"{blockGo} -> {difBlockGo} - YES");
+                            //Debug.Log($"{blockGo} -> {difBlockGo} - YES");
                             blockEntity.Get<InputBlock>().Value = difBlockEntity;
                         }
+                        
+                        if (blockEntity.Has<LoneWolfTag>())
+                            blockEntity.Del<WorkState>();
                     }
                 }
             }
         }
+        
+        
 
         private bool BlockIsLookingToAnotherBlock(Transform targetBlock, Transform otherBlock)
         {
@@ -82,5 +90,9 @@ namespace Client
 
             return localPos.z < 0f && inputDirection == InputDirection.Back;
         }
+    }
+
+    public struct WorkState : IEcsIgnoreInFilter
+    {
     }
 }

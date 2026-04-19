@@ -27,6 +27,12 @@ namespace Data
         [field: SerializeField] public float DistanceBetweenBlocks { get; private set; }
         [field: SerializeField] public float DistanceToTriggerInteraction { get; private set; }
         [field: SerializeField] public float TimeToTriggerInteraction { get; private set; }
+        [field: SerializeField] public int WinSignal { get; private set; }
+        [field: SerializeField] public Vector3 ButtonLocalPos { get; private set; }
+        [field: SerializeField] public Vector3 ButtonStartScale { get; private set; }
+        [field: SerializeField] public float ButtonPressDuration { get; private set; }
+        [field: SerializeField] public float StartFov { get; private set; }
+        [field: SerializeField] public float FovCoef { get; private set; }
 
         [Header("Character")]
         [field: SerializeField]

@@ -34,9 +34,16 @@ namespace Client
                     {
                         EcsEntity blockEntity = _prefabFactory.Spawn(blockData.Prefab, manipulatorGo.transform.position, Quaternion.identity,
                             manipulatorGo.transform);
-                        
+
                         manipulatorEntity.Get<IsHaveBlockState>().BlockEntity = blockEntity;
                         blockEntity.Get<SignalBlockDataComponent>().Value = blockData;
+
+                        if (request.SignalBlockType == SignalBlockType.LoneWolf)
+                            blockEntity.Get<LoneWolfTag>();
+                        
+                        if (request.SignalBlockType == SignalBlockType.ProjectSolution)
+                            blockEntity.Get<ProjectSolutionTag>();
+                        
                         var blockGo = blockEntity.Get<GameObjectProvider>().Value;
                         blockGo.transform.name = $"{request.SignalBlockType}_{request.InputDirection}_{_data.RuntimeData.BlockCounter}";
                         _data.RuntimeData.BlockCounter += 1;
@@ -54,5 +61,17 @@ namespace Client
                 requestEntity.Del<BuyBlockRequest>();
             }
         }
+    }
+
+    public struct ProjectSolutionTag : IEcsIgnoreInFilter
+    {
+    }
+    
+    public struct SignalEndEvent : IEcsIgnoreInFilter
+    {
+    }
+
+    public struct LoneWolfTag : IEcsIgnoreInFilter
+    {
     }
 }

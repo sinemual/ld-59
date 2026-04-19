@@ -3,6 +3,7 @@ namespace Client.Data
     public enum CameraType
     {
         None = 0,
-        PizzaReady = 1,
+        DefaultGameplay = 1,
+        ToScreen = 2,
     }
 }

@@ -27,6 +27,10 @@ namespace Client
         private void UpdateTexts()
         {
             _ui.GetScreen<GameScreen>().UpdateMoneyText(_data.SaveData.Currency);
+            
+            _ui.GetScreen<SignalBlockScreen>().SignalBlockPanels.InitItems(_data.StaticData.BlocksByType[_data.RuntimeData.TabType].Blocks,
+                _data.SaveData.Currency,
+                _data.SaveData.IsBlockResearched[_data.RuntimeData.TabType], false);
         }
     }
 }

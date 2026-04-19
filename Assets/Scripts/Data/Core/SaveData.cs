@@ -32,7 +32,7 @@ namespace Data
         public TutorialStep CurrentTutorialStep;
 
         [Header("Tutorials")] public SerializedDictionary<TutorialStep, bool> TutrorialStates;
-        [Header("Tutorials")] public SerializedDictionary<string, bool> IsBlockResearched;
+        [Header("Tutorials")] public SerializedDictionary<SignalBlockType, bool> IsBlockResearched;
 
         public void ResetToDefaults()
         {
@@ -52,14 +52,18 @@ namespace Data
             IdleRewardTimeKey = "";
             
             TutrorialStates = new SerializedDictionary<TutorialStep, bool>();
-            IsBlockResearched = new SerializedDictionary<string, bool>();
+            IsBlockResearched = new SerializedDictionary<SignalBlockType, bool>();
         }
 
         public void BindData(int startMoney, List<TutorialData> tutorialDatas)
         {
             Currency = startMoney;
+            
             for (var i = 0; i < tutorialDatas.Count; i++)
                 TutrorialStates.Add((TutorialStep)i, false);
+            
+            for (var i = 0; i < 10; i++)
+                IsBlockResearched.Add((SignalBlockType)i, false);
         }
     }
 }

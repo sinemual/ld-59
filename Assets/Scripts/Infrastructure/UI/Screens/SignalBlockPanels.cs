@@ -9,7 +9,7 @@ public class SignalBlockPanels : MonoBehaviour
 
     public event Action<SignalBlockData> BuyBlock;
     
-    public void InitItems(List<SignalBlockData> blockDatas, int money, int labPoints, bool isTutorialStep)
+    public void InitItems(List<SignalBlockData> blockDatas, int money, bool isResearched, bool isTutorialStep)
     {
         for (int i = 0; i < panels.Length; i++)
         {
@@ -20,7 +20,7 @@ public class SignalBlockPanels : MonoBehaviour
         for (int i = 0; i < panels.Length; i++)
         {
             int k = i;
-            panels[k].UpdateInfoByData(blockDatas[k], money, labPoints, isTutorialStep);
+            panels[k].UpdateInfoByData(blockDatas[k], money, isResearched, isTutorialStep);
             panels[k].BuyBlock += BuyBlock;
         }
     }

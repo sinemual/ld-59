@@ -51,6 +51,7 @@ namespace Client.Infrastructure.UI.BaseUI
         None = 0,
         GameScreen = 1,
         SettingsScreen = 2,
-        SignalBlockScreen = 3
+        SignalBlockScreen = 3,
+        StartScreen = 4
     }
 }

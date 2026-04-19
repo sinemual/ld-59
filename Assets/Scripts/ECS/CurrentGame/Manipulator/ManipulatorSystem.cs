@@ -40,7 +40,7 @@ namespace Client
 
                     if (manipulatorEntity.Has<InGridState>())
                     {
-                        //float nearestDistance = 1000.0f;
+                        float nearestDistance = 1000.0f;
                         int nearestGridCellNum = 0;
                         Vector3 gridCellPosition = Vector3.zero;
                         foreach (var idz in _gridFilter)
@@ -48,35 +48,21 @@ namespace Client
                             ref var gridEntity = ref _gridFilter.GetEntity(idz);
                             ref var gridCell = ref gridEntity.Get<GridCell>();
 
-                                //Debug.Log($"gridCell.Point {gridCell.Point}");
+                            //Debug.Log($"gridCell.Point {gridCell.Point}");
                             //Debug.Log($"raycastEvent.HitPoint {raycastEvent.HitPoint}");
-                            Vector3 hitPoint = raycastEvent.HitPoint;
-
-                            float cellSize = 1.2f;
-                            Vector3 gridStart = _data.SceneData.GridZoneStart.position;
-
-                            int cellX = Mathf.FloorToInt((hitPoint.x - gridStart.x) / cellSize);
-                            int cellZ = Mathf.FloorToInt((hitPoint.z - gridStart.z) / cellSize);
-
-                            gridCellPosition = new Vector3(
-                                gridStart.x + cellX * cellSize + cellSize * 0.5f,
-                                hitPoint.y,
-                                gridStart.z + cellZ * cellSize + cellSize * 0.5f
-                            );
-                            nearestGridCellNum = cellZ * 5 + cellX;
-                            
-                            /*var distance = Vector3.Distance(gridCell.Point.position, raycastEvent.HitPoint);
+                            var distance = Vector3.Distance(gridCell.Point.position, raycastEvent.HitPoint);
                             if (distance < nearestDistance)
                             {
                                 nearestDistance = distance;
                                 nearestGridCellNum = gridCell.Id;
                                 gridCellPosition = gridCell.Point.position;
-                            }*/
+                            }
                         }
                         
                         var gridCellNum = nearestGridCellNum;
                         manipulatorEntity.Get<InGridState>().GridCellNum = gridCellNum;
-                        manipulatorGo.transform.position = gridCellPosition + Vector3.up * 0.5f;
+                        Vector3 gridPosition = gridCellPosition;
+                        manipulatorGo.transform.position = gridPosition + Vector3.up * 0.5f;
                         /*Vector3.Lerp(manipulatorGo.transform.position, gridPosition + Vector3.up * 0.5f,
                                 10 * Time.deltaTime);*/
                     }

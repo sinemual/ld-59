@@ -1,6 +1,5 @@
 using Client.Infrastructure.UI.BaseUI;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class LoadingScreen : BaseScreen

@@ -39,6 +39,7 @@ namespace Client
                     //_world.NewEntity().Get<StartEarnEnergyRequest>();
                     _ui.ShowScreen<GameScreen>();
                     _ui.ShowScreen<SignalBlockScreen>();
+                    _ui.ShowScreen<StartScreen>();
                     _ui.ReorderScreens();
                     _world.NewEntity().Get<CheckInputToGameplayStartRequest>();
                     //_audio
@@ -56,10 +57,15 @@ namespace Client
                     reqEntity.Del<StartLevelRequest>();
 
                     _world.NewEntity().Get<EarnCurrencyEvent>();
+                    _world.NewEntity().Get<SpawnFirstBlockRequest>();
 
                     _ui.GetScreen<GameScreen>().UpdateLevelText(_data.SaveData.EventLevelIdx);
                 }
             }
         }
+    }
+
+    internal struct SpawnFirstBlockRequest : IEcsIgnoreInFilter
+    {
     }
 }

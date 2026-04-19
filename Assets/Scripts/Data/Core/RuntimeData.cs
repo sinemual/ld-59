@@ -19,12 +19,14 @@ namespace Data
         public int CurrentTaskId = -1;
         public float LevelProgress;
         public int BlockCounter;
+        public SignalBlockType TabType;
 
         public int LastLevelIdx = -1;
         
         public bool IsWeHaveInternetTime;
         public bool IsLoopedLevel;
         public bool IsDeleteState;
+        public bool IsEnded;
 
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 

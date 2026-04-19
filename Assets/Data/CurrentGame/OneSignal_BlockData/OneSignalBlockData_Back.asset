@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a618499aef824e9eb7c8b2f323243ef1, type: 3}
+  m_Name: OneSignalBlockData_Back
+  m_EditorClassIdentifier: Assembly-CSharp::Data.SignalBlockData
+  SignalBlockType: 1
+  InputDirection: 2
+  Prefab: {fileID: 9060470592899433093, guid: 45082853311ce924e9eed1f01e255c27, type: 3}
+  BlockSprite: {fileID: -1009871048, guid: b63a67e910a43754eb0e8fd4d9416fc3, type: 3}
+  BlockName: Signal
+  BlockDescription: Adds one signal to the chain.
+  BuyPrice: 10
+  ResearchPrice: 10

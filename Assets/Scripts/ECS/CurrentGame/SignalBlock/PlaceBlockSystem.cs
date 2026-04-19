@@ -16,6 +16,7 @@ namespace Client
         private EcsFilter<TapRaycastEvent> _tapRequestFilter;
         private EcsFilter<ManipulatorProvider, IsHaveBlockState, InGridState> _manipulatorFilter;
         private EcsFilter<GridCell> _gridFilter;
+        private EcsFilter<ProjectSolutionTag, MyGrid> _projectSolutionFilter;
 
         public void Run()
         {
@@ -54,6 +55,9 @@ namespace Client
                                 manipulatorEntity.Del<IsHaveBlockState>();
                                 requestEntity.Del<TapRaycastEvent>();
                                 _audioService.Play(Sounds.Place);
+
+                                if (!_projectSolutionFilter.IsEmpty())
+                                    _world.NewEntity().Get<ProjectSolutionEvent>();
                                 break;
                             }
                         }
@@ -61,5 +65,9 @@ namespace Client
                 }
             }
         }
+    }
+
+    public struct ProjectSolutionEvent
+    {
     }
 }

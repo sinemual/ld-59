@@ -31,10 +31,49 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cefa2f895f2d86f44b4cd8ec30409c6d, type: 2}
   - {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
   LevelLooped: {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
+  ProjectSolutionEndText: WOW! You're so ugly!
+  SignalEndText: Wow! Even though you're ugly, you're really smart!
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
   SignalBlockDatas:
   - {fileID: 11400000, guid: 1ee493f1c1460c54f9ac8d983ad1d0cb, type: 2}
+  - {fileID: 11400000, guid: 788c4391b3756424580ec0d97ce3de79, type: 2}
+  - {fileID: 11400000, guid: 4a048834f0f676a4f940952d21c4ca5b, type: 2}
+  - {fileID: 11400000, guid: 0aadaa85ca9ed184085eb2643511c640, type: 2}
+  - {fileID: 11400000, guid: a3809faf1b0a7ad4d9f19ae09d036bc9, type: 2}
+  - {fileID: 11400000, guid: ae157fe6056219c44be09b9a13221fb3, type: 2}
+  - {fileID: 11400000, guid: 8f9f08a2bbeb675489ebf170a2f224fb, type: 2}
+  - {fileID: 11400000, guid: 33530cfa6b3406f48b8b5b60d2f75a95, type: 2}
+  - {fileID: 11400000, guid: d7e02828fa96b51418faeec71d867690, type: 2}
+  - {fileID: 11400000, guid: 94925ae42f115b94b9638098ce70b2c9, type: 2}
+  - {fileID: 11400000, guid: 295f4fcd8259c6246be66bd9d6a1c602, type: 2}
+  - {fileID: 11400000, guid: 29c878eb0a92b104f878a570baf4831b, type: 2}
+  BlocksByType:
+    _serializedList:
+    - Key: 1
+      Value:
+        Blocks:
+        - {fileID: 11400000, guid: 1ee493f1c1460c54f9ac8d983ad1d0cb, type: 2}
+        - {fileID: 11400000, guid: 788c4391b3756424580ec0d97ce3de79, type: 2}
+        - {fileID: 11400000, guid: 4a048834f0f676a4f940952d21c4ca5b, type: 2}
+    - Key: 2
+      Value:
+        Blocks:
+        - {fileID: 11400000, guid: 0aadaa85ca9ed184085eb2643511c640, type: 2}
+        - {fileID: 11400000, guid: a3809faf1b0a7ad4d9f19ae09d036bc9, type: 2}
+        - {fileID: 11400000, guid: ae157fe6056219c44be09b9a13221fb3, type: 2}
+    - Key: 3
+      Value:
+        Blocks:
+        - {fileID: 11400000, guid: 8f9f08a2bbeb675489ebf170a2f224fb, type: 2}
+        - {fileID: 11400000, guid: 33530cfa6b3406f48b8b5b60d2f75a95, type: 2}
+        - {fileID: 11400000, guid: d7e02828fa96b51418faeec71d867690, type: 2}
+    - Key: 4
+      Value:
+        Blocks:
+        - {fileID: 11400000, guid: 94925ae42f115b94b9638098ce70b2c9, type: 2}
+        - {fileID: 11400000, guid: 295f4fcd8259c6246be66bd9d6a1c602, type: 2}
+        - {fileID: 11400000, guid: 29c878eb0a92b104f878a570baf4831b, type: 2}
   GroundTag: 
   RaycastMask:
     serializedVersion: 2

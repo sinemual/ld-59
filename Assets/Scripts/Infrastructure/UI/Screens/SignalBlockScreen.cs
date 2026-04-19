@@ -1,6 +1,7 @@
 ﻿using System;
 using Client;
 using Client.Infrastructure.UI.BaseUI;
+using TMPro;
 using UnityEngine;
 
 public class SignalBlockScreen : BaseScreen
@@ -8,10 +9,13 @@ public class SignalBlockScreen : BaseScreen
     [SerializeField] private SignalBlockPanels signalBlockPanels;
     [SerializeField] private UIButton closeButton;
     [SerializeField] private UIButton deleteModeButton;
+    [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private MovablePanel movablePanel;
     [SerializeField] private TutorialHandAnimation tutorialHandAnimation;
+    [SerializeField] private UIButton[] tabButtons;
 
     public event Action CloseButtonClick;
+    public event Action<int> ChangeTabButtonClick;
     public event Action DeleteModeButtonClick;
 
     public SignalBlockPanels SignalBlockPanels => signalBlockPanels;
@@ -21,10 +25,25 @@ public class SignalBlockScreen : BaseScreen
         closeButton.Clicked += OnCloseButtonClick;
         deleteModeButton.Clicked += OnDeleteModeButtonClick;
         ShowScreen += UpdateView;
+        for (int i = 0; i < tabButtons.Length; i++)
+        {
+            var iTemp = i;
+            tabButtons[i].Clicked += () => OnTabClicked(iTemp);
+        }
+    }
+
+    private void OnTabClicked(int index)
+    {
+        ChangeTabButtonClick?.Invoke(index);
     }
 
     private void UpdateView()
     {
+    }
+
+    public void UpdateDescriptionText(string blockDescription)
+    {
+        description.text = blockDescription;
     }
     
     protected override void Show()

@@ -19,6 +19,8 @@ namespace Client.Data
         public int AlwaysLoadWorldId;
         public List<LevelData> Levels;
         public LevelData LevelLooped;
+        public string ProjectSolutionEndText;
+        public string SignalEndText;
 
         [Header("Tutorials & Tasks")]
         //public SerializedDictionary<TutorialStep, bool> TutorDependenceByStep;
@@ -27,6 +29,7 @@ namespace Client.Data
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
 
         [Header("Current Game Data")] public List<SignalBlockData> SignalBlockDatas;
+        public SerializedDictionary<SignalBlockType, BlocksGroup> BlocksByType;
         public Dictionary<SignalBlockType, SignalBlockData> SignalBlockDataByType;
 
         [Header("Tags & Layers")] [Group("Tags")] [Tag]
@@ -54,7 +57,7 @@ namespace Client.Data
 
             SignalBlockDataByType = new Dictionary<SignalBlockType, SignalBlockData>();
             foreach (var blockData in SignalBlockDatas)
-                SignalBlockDataByType.Add(blockData.SignalBlockType, blockData);
+                SignalBlockDataByType.TryAdd(blockData.SignalBlockType, blockData);
         }
 
         public SignalBlockData GetBlockByParameters(SignalBlockType blockType, InputDirection inputDirection)
@@ -67,5 +70,11 @@ namespace Client.Data
 
             return null;
         }
+    }
+
+    [Serializable]
+    public class BlocksGroup
+    {
+        public List<SignalBlockData> Blocks;
     }
 }

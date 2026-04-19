@@ -25,8 +25,8 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
   - name: money
-    clip: {fileID: 8300000, guid: 5011a36e828885b4ba58cf97f7745eb5, type: 3}
-    volume: 0.453
+    clip: {fileID: 8300000, guid: 505af8c640afc174f9d5bd7d0e000ed6, type: 3}
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1

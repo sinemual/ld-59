@@ -4,7 +4,9 @@ namespace Client.Data
     {
         None = 0,
         OneSignal = 1,
-        Multiplier = 2
+        Multiplier = 2,
+        LoneWolf = 3,
+        ProjectSolution = 4
     }
 
     public enum InputDirection

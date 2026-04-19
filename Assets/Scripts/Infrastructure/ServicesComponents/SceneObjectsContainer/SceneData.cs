@@ -6,4 +6,5 @@ public class SceneData : MonoBehaviour
     public CameraSceneData CameraSceneData;
     public Transform GridZoneStart;
     public Transform GridZoneEnd;
+    public Transform StartBlockPoint;
 }
